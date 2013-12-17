@@ -7,6 +7,7 @@ MAINTAINER Amer Grgic "amer@livebyt.es"
 WORKDIR /data/ghost
 
 # Install dependencies for nginx installation
+RUN apt-get update
 RUN apt-get install -y python g++ make software-properties-common
 RUN add-apt-repository ppa:chris-lea/node.js
 RUN apt-get update
@@ -17,7 +18,7 @@ RUN apt-get install -y rlwrap
 RUN apt-get install -y nodejs 
 RUN curl https://npmjs.org/install.sh | sh
 # Add Ghost zip to image
-ADD ./ghost-0.3.2.zip /tmp/
+ADD ./ghost-0.3.3.zip /tmp/
 # Unzip Ghost zip to /data/ghost
 RUN unzip -uo /tmp/ghost-0.3.2.zip -d /data/ghost
 # Add custom config js to /data/ghost
